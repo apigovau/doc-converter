@@ -35,12 +35,12 @@ jar {
 
 task addPandoc(type: Exec) {
     workingDir "${buildDir}/../"
-    commandLine 'zip', '-rv', 'build/libs/DocConverter-1.0.jar', 'AddLinks.xsl'
+    commandLine 'zip', '-rv', 'build/libs/DocConverter-1.0.jar', 'pandoc'
 }
 
 task addPandocCopyright(type: Exec) {
     workingDir "${buildDir}/../"
-    commandLine 'zip', '-rv', 'build/libs/DocConverter-1.0.jar', 'AddLinks.xsl'
+    commandLine 'zip', '-rv', 'build/libs/DocConverter-1.0.jar', 'COPYRIGHT_PANDOC'
 }
 
 distZip.finalizedBy(addPandoc)
