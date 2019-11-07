@@ -23,8 +23,8 @@ class Controller {
         val f =  File("${md5}.$toFormat")
         if (!f.isFile()) {
 
-            val p = Runtime.getRuntime().exec("pandoc -f $format -t $toFormat -o ${md5}.$toFormat $md5.$format") //For windows dev
-            //val p = Runtime.getRuntime().exec("./pandoc -f $format -t $toFormat -o ${md5}.$toFormat $md5.$format")
+            //val p = Runtime.getRuntime().exec("pandoc -f $format -t $toFormat -o ${md5}.$toFormat $md5.$format") //For windows dev
+            val p = Runtime.getRuntime().exec("./pandoc -f $format -t $toFormat -o ${md5}.$toFormat $md5.$format")
             p.waitFor()
         }
         var svg = File("${md5}.$toFormat").readText()
