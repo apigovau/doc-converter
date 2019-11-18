@@ -36,9 +36,11 @@ class Controller {
             }
         }
         try {
-            //Delete the temp files
-            File("${md5}.$toFormat").delete()
-            File("${md5}.$format").delete()
+            if (true) {
+                //Delete the temp files
+                File("${md5}.$toFormat").delete()
+                File("${md5}.$format").delete()
+            }
         } catch (e: Exception) {
             println("Filed to delete the following files:")
             println("${md5}.$toFormat")

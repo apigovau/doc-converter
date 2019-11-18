@@ -10,8 +10,14 @@ class PandocTests {
         var controller:Controller = Controller()
 
         //Read the test file
-        val byArray = File("Test.docx").readBytes()
+        val byArray = File("./src/test/resources/Test.docx").readBytes()
         var x = controller.pandoc("docx","gfm",true,byArray)
-        Assert.assertEquals(x, "")
+        Assert.assertTrue(x.startsWith("# Header 1"))
+        Assert.assertTrue(x.contains("## Header 2"))
+        Assert.assertTrue(x.contains("### Header 3"))
+        Assert.assertTrue(x.contains("#### Header 4"))
+        Assert.assertTrue( x.contains("data:image/jpeg;base64"))
+
+
     }
 }
