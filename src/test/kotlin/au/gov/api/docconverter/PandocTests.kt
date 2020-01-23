@@ -10,7 +10,7 @@ class PandocTests {
         var controller:Controller = Controller()
 
         //Read the test file
-        val byArray = File("./src/test/resources/Test.docx").readBytes()
+        val byArray = File("Test.docx").readBytes()
         var x = controller.pandoc("docx","gfm",true,byArray)
         Assert.assertTrue(x.startsWith("# Header 1"))
         Assert.assertTrue(x.contains("## Header 2"))
