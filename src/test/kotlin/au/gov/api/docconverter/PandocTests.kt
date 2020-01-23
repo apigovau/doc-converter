@@ -3,6 +3,7 @@ package au.gov.api.docconverter
 import org.junit.Assert
 import org.junit.Test
 import java.io.File
+import java.lang.Exception
 
 class PandocTests {
     @Test
@@ -11,7 +12,13 @@ class PandocTests {
 
         //Read the test file
         val byArray = File("./src/test/resources/Test.docx").readBytes()
-        var x = controller.pandoc("docx","gfm",true,byArray)
+        var x = ""
+        try {
+            x = controller.pandoc("docx","gfm",true,byArray)
+        } catch (e:Exception) {
+            println(e.toString())
+        }
+
         Assert.assertTrue(x.startsWith("# Header 1"))
         Assert.assertTrue(x.contains("## Header 2"))
         Assert.assertTrue(x.contains("### Header 3"))
